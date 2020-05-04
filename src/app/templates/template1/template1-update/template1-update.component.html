@@ -1,0 +1,974 @@
+<app-nav></app-nav>
+
+<form #form="ngForm" (submit)="onSubmit(form)">
+    <div class="resume">
+        <div class="base">
+            <div ngModelGroup="basicinfo">
+                <div class="form-group">
+                    <div class="profile">
+                        <div class="photo" style="margin-bottom: 5px;"><img [src]="information.basicInfo.url">
+                            <input class="" (change)="upload($event)" type="file" accept=".png,.jpg">
+                        </div>
+                        <div class="info">
+                            <div class="form-group col-md-16">
+                                <label for="name">
+                                    <h4>Name</h4>
+                                </label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    [ngModel]="information.basicInfo.name" #name="ngModel" required minlength="4">
+
+                                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+                                    <div *ngIf="name.errors.required">
+                                        Name is required.
+                                    </div>
+                                    <div *ngIf="name.errors.minlength">
+                                        Name must be at least 4 characters long.
+                                    </div>
+                                    <div *ngIf="name.errors.forbiddenName">
+                                        Name cannot be Bob.
+                                    </div>
+
+                                </div>
+                            </div>
+                            <small class="job" style="font-family: inherit; font-size: inherit;">
+                                <div class="form-group col-md-16">
+                                    <label for="designation">
+                                        <h4>Designation</h4>
+                                    </label>
+                                    <input type="text" class="form-control" id="designation" name="designation"
+                                        [ngModel]="information.basicInfo.designation">
+
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="contact">
+                        <h3>Personal Info.</h3>
+                        <div class="form-group col-md-16">
+                            <label for="present address">
+                                <h4>Present Address</h4>
+                            </label>
+                            <input type="text" class="form-control" id="presentaddress" name="presentaddress"
+                                #presentaddress="ngModel" [ngModel]="information.basicInfo.presentaddress">
+
+                        </div>
+                        <div class="form-group col-md-16">
+                            <label for="email">
+                                <h4>Email address</h4>
+                            </label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                [ngModel]="information.basicInfo.email" #email="ngModel" required>
+
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+                                <div *ngIf="email.errors.required">
+                                    Email is required.
+                                </div>
+                                <div *ngIf="email.errors.pattern">
+                                    This is not a valid email.
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="form-group col-md-16">
+                            <label for="Phone Number">
+                                <h4>Phone Number</h4>
+                            </label>
+                            <input type="text" class="form-control" id="phonenumber" name="phonenumber"
+                                #phonenumber="ngModel" [ngModel]="information.basicInfo.phonenumber">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact">
+                <div ngModelGroup="skills">
+
+                    <div class="form-group">
+
+                        <h3>Skills</h3>
+                        <h4>Programming Languages</h4>
+                        <div class="form-group col-md-16">
+                            <input type="text" class="form-control" id="programming" name="programming"
+                                #programming="ngModel" [ngModel]="information.skills.programming">
+                        </div>
+                        <h4>Framework</h4>
+                        <div class="form-group col-md-16">
+                            <input type="text" class="form-control" id="framework" name="framework" #framework="ngModel"
+                                [ngModel]="information.skills.framework">
+                        </div>
+                        <h4>Operating System</h4>
+                        <div class="form-group col-md-16">
+                            <input type="text" class="form-control" id="system" name="system" #system="ngModel"
+                                [ngModel]="information.skills.system">
+                        </div>
+                        <h4>Web Technologies</h4>
+                        <div class="form-group col-md-16">
+                            <input type="text" class="form-control" id="other" name="other" #other="ngModel"
+                                [ngModel]="information.skills.other">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="follow">
+                <h3>Contact me</h3>
+                <div class="box">
+                    <a href="javascript:void(0);"><i class="fa fa-facebook"></i></a>
+                    <a href="javascript:void(0);"><i class="fa fa-twitter"></i></a>
+                    <a href="javascript:void(0);"><i class="fa fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fa fa-codepen"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="func">
+            <div class="work">
+                <div ngModelGroup="experience">
+
+                    <div class="form-group">
+                        <h3><i class="fa fa-briefcase"></i>Experiences</h3>
+                        <ul>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="companyName0">Company Name</label>
+                                            <input type="text" class="form-control" id="companyName0"
+                                                name="companyName0" #companyName0="ngModel"
+                                                [ngModel]="information.experience.companyName0">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="desgnation0">Designation</label>
+                                            <input type="text" class="form-control" id="desgnation0" name="designation0"
+                                                #desgnation0="ngModel"
+                                                [ngModel]="information.experience.designation0">
+                                        </div>
+
+
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form row">
+                                        <div class="form-group col-md-2">
+                                            <label for="from0">From</label>
+                                            <input type="text" class="form-control" id="from0" name="from0"
+                                                #from0="ngModel" [ngModel]="information.experience.from0">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="to0">To</label>
+                                            <input type="text" class="form-control" id="to0" name="to0" #to0="ngModel"
+                                                [ngModel]="information.experience.to0">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="companyName1">Company Name</label>
+                                            <input type="text" class="form-control" id="companyName1"
+                                                name="companyName1" #companyName1="ngModel"
+                                                [ngModel]="information.experience.companyName1">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="desgnation1">Designation</label>
+                                            <input type="text" class="form-control" id="desgnation1" name="designation1"
+                                                #desgnation1="ngModel"
+                                                [ngModel]="information.experience.designation1">
+                                        </div>
+
+
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form row">
+                                        <div class="form-group col-md-2">
+                                            <label for="from1">From</label>
+                                            <input type="text" class="form-control" id="from1" name="from1"
+                                                #from1="ngModel" [ngModel]="information.experience.from1">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="to1">To</label>
+                                            <input type="text" class="form-control" id="to1" name="to1" #to1="ngModel"
+                                                [ngModel]="information.experience.to1">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="companyName2">Company Name</label>
+                                            <input type="text" class="form-control" id="companyName2"
+                                                name="companyName2" #companyName2="ngModel"
+                                                [ngModel]="information.experience.companyName2">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="desgnation2">Designation</label>
+                                            <input type="text" class="form-control" id="desgnation2" name="designation2"
+                                                #desgnation2="ngModel"
+                                                [ngModel]="information.experience.designation2">
+                                        </div>
+
+
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form row">
+                                        <div class="form-group col-md-2">
+                                            <label for="from2">From</label>
+                                            <input type="text" class="form-control" id="from2" name="from2"
+                                                #from2="ngModel" [ngModel]="information.experience.from2">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="to2">To</label>
+                                            <input type="text" class="form-control" id="to2" name="to2" #to2="ngModel"
+                                                [ngModel]="information.experience.to2">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="companyName3">Company Name</label>
+                                            <input type="text" class="form-control" id="companyName3"
+                                                name="companyName3" #companyName3="ngModel"
+                                                [ngModel]="information.experience.companyName3">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="desgnation3">Designation</label>
+                                            <input type="text" class="form-control" id="desgnation3" name="designation3"
+                                                #desgnation3="ngModel"
+                                                [ngModel]="information.experience.designation3">
+                                        </div>
+
+
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form row">
+                                        <div class="form-group col-md-2">
+                                            <label for="from3">From</label>
+                                            <input type="text" class="form-control" id="from3" name="from3"
+                                                #from3="ngModel" [ngModel]="information.experience.from3">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="to3">To</label>
+                                            <input type="text" class="form-control" id="to3" name="to3" #to3="ngModel"
+                                                [ngModel]="information.experience.to3">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="companyName4">Company Name</label>
+                                            <input type="text" class="form-control" id="companyName4"
+                                                name="companyName4" #companyName4="ngModel"
+                                                [ngModel]="information.experience.companyName4">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label for="desgnation4">Designation</label>
+                                            <input type="text" class="form-control" id="desgnation4" name="designation4"
+                                                #desgnation4="ngModel"
+                                                [ngModel]="information.experience.designation4">
+                                        </div>
+
+
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form row">
+                                        <div class="form-group col-md-2">
+                                            <label for="from4">From</label>
+                                            <input type="text" class="form-control" id="from4" name="from4"
+                                                #from4="ngModel" [ngModel]="information.experience.from4">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="to4">To</label>
+                                            <input type="text" class="form-control" id="to4" name="to4" #to4="ngModel"
+                                                [ngModel]="information.experience.to4">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="edu">
+                <div ngModelGroup="qualification">
+                    <div class="form-group">
+                        <h3><i class="fa fa-graduation-cap"></i>Education</h3>
+                        <ul>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="certificationname0">Cirtification Name</label>
+                                            <input type="text" class="form-control" id="certificationname0"
+                                                name="certificationname0" #certificationname0="ngModel"
+                                                [ngModel]="information.qualification.certificationname0">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="institute0">Institute</label>
+                                            <input type="text" class="form-control" id="institute0" name="institute0"
+                                                #institute0="ngModel"
+                                                [ngModel]="information.qualification.institute0">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label for="cgpa0">CGPA</label>
+                                            <input type="text" class="form-control" id="cgpa0" name="cgpa0"
+                                                #cgpa0="ngModel"
+                                                [ngModel]="information.qualification.cgpa0">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="session0">Session</label>
+                                            <input type="text" class="form-control" id="session0" name="session0"
+                                                #session0="ngModel"
+                                                [ngModel]="information.qualification.session0">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                            <li *ngIf="information.qualification.certificationname1">
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="certificationname1">Cirtification Name</label>
+                                            <input type="text" class="form-control" id="certificationname1"
+                                                name="certificationname1" #certificationname1="ngModel"
+                                                [ngModel]="information.qualification.certificationname1">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="institute0">Institute</label>
+                                            <input type="text" class="form-control" id="institute1" name="institute1"
+                                                #institute1="ngModel"
+                                                [ngModel]="information.qualification.institute1">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label for="cgpa1">CGPA</label>
+                                            <input type="text" class="form-control" id="cgpa1" name="cgpa1"
+                                                #cgpa1="ngModel"
+                                                [ngModel]="information.qualification.cgpa1">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="session1">Session</label>
+                                            <input type="text" class="form-control" id="session1" name="session1"
+                                                #session1="ngModel"
+                                                [ngModel]="information.qualification.session1">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="certificationname2">Cirtification Name</label>
+                                            <input type="text" class="form-control" id="certificationname2"
+                                                name="certificationname2" #certificationname2="ngModel"
+                                                [ngModel]="information.qualification.certificationname2">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="institute2">Institute</label>
+                                            <input type="text" class="form-control" id="institute2" name="institute2"
+                                                #institute2="ngModel"
+                                                [ngModel]="information.qualification.institute2">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label for="cgpa2">CGPA</label>
+                                            <input type="text" class="form-control" id="cgpa2" name="cgpa2"
+                                                #cgpa2="ngModel"
+                                                [ngModel]="information.qualification.cgpa2">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="session2">Session</label>
+                                            <input type="text" class="form-control" id="session2" name="session2"
+                                                #session2="ngModel"
+                                                [ngModel]="information.qualification.session2">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="certificationname3">Cirtification Name</label>
+                                            <input type="text" class="form-control" id="certificationname3"
+                                                name="certificationname3" #certificationname3="ngModel"
+                                                [ngModel]="information.qualification.certificationname3">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="institute3">Institute</label>
+                                            <input type="text" class="form-control" id="institute3" name="institute3"
+                                                #institute3="ngModel"
+                                                [ngModel]="information.qualification.institute3">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label for="cgpa3">CGPA</label>
+                                            <input type="text" class="form-control" id="cgpa3" name="cgpa3"
+                                                #cgpa3="ngModel"
+                                                [ngModel]="information.qualification.cgpa3">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="session3">Session</label>
+                                            <input type="text" class="form-control" id="session3" name="session3"
+                                                #session3="ngModel"
+                                                [ngModel]="information.qualification.session3">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="certificationname4">Cirtification Name</label>
+                                            <input type="text" class="form-control" id="certificationname4"
+                                                name="certificationname4" #certificationname4="ngModel"
+                                                [ngModel]="information.qualification.certificationname4">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="institute4">Institute</label>
+                                            <input type="text" class="form-control" id="institute4" name="institute4"
+                                                #institute4="ngModel"
+                                                [ngModel]="information.qualification.institute4">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <label for="cgpa4">CGPA</label>
+                                            <input type="text" class="form-control" id="cgpa4" name="cgpa4"
+                                                #cgpa4="ngModel"
+                                                [ngModel]="information.qualification.cgpa4">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="session4">Session</label>
+                                            <input type="text" class="form-control" id="session4" name="session4"
+                                                #session4="ngModel"
+                                                [ngModel]="information.qualification.session4">
+                                        </div>
+
+                                    </div>
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="edu">
+                <div ngModelGroup="Participation">
+                    <div class="form-group">
+                        <h3><i class="fa fa-th-list"></i>Participation</h3>
+                        <ul>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="event0">Event Name</label>
+                                            <input type="text" class="form-control" id="event0" name="event0"
+                                                #event0="ngModel" [ngModel]="information.participation.event0">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievement0">Achievement</label>
+                                            <input type="text" class="form-control" id="achievement0"
+                                                name="achievement0" #achievement0="ngModel"
+                                                [ngModel]="information.participation.achievement0">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="time0">Year</label>
+                                        <input type="text" class="form-control" id="time0" name="time0" #time0="ngModel"
+                                            [ngModel]="information.participation.time0">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="event1">Event Name</label>
+                                            <input type="text" class="form-control" id="event1" name="event1"
+                                                #event1="ngModel" [ngModel]="information.participation.event1">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievement1">Achievement</label>
+                                            <input type="text" class="form-control" id="achievement" name="achievement1"
+                                                #achievement1="ngModel"
+                                                [ngModel]="information.participation.achievement1">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="time1">Year</label>
+                                        <input type="text" class="form-control" id="time1" name="time1" #time1="ngModel"
+                                            [ngModel]="information.participation.time1">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="event2">Event Name</label>
+                                            <input type="text" class="form-control" id="event2" name="event2"
+                                                #event2="ngModel" [ngModel]="information.participation.event2">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievement2">Achievement</label>
+                                            <input type="text" class="form-control" id="achievement2"
+                                                name="achievement2" #achievement2="ngModel"
+                                                [ngModel]="information.participation.achievement2">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="time2">Year</label>
+                                        <input type="text" class="form-control" id="time2" name="time2" #time2="ngModel"
+                                            [ngModel]="information.participation.time2">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="event3">Event Name</label>
+                                            <input type="text" class="form-control" id="event3" name="event3"
+                                                #event3="ngModel" [ngModel]="information.participation.event3">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievement3">Achievement</label>
+                                            <input type="text" class="form-control" id="achievement3"
+                                                name="achievement3" #achievement3="ngModel"
+                                                [ngModel]="information.participation.achievement3">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="time3">Year</label>
+                                        <input type="text" class="form-control" id="time3" name="time3" #time3="ngModel"
+                                            [ngModel]="information.participation.time3">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="event4">Event Name</label>
+                                            <input type="text" class="form-control" id="event4" name="event4"
+                                                #event4="ngModel" [ngModel]="information.participation.event4">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievement4">Achievement</label>
+                                            <input type="text" class="form-control" id="achievement4"
+                                                name="achievement4" #achievement4="ngModel"
+                                                [ngModel]="information.participation.achievement4">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="time4">Year</label>
+                                        <input type="text" class="form-control" id="time4" name="time4" #time4="ngModel"
+                                            [ngModel]="information.participation.time4">
+                                    </div>
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="edu">
+                <div ngModelGroup="onlineJudge">
+                    <div class="form-group">
+                        <h3><i class="fa fa-code"></i>Online Judges</h3>
+                        <ul>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeName0">Online Judge Name</label>
+                                            <input type="text" class="form-control" id="judgeName0" name="judgeName0"
+                                                #judgeName0="ngModel" [ngModel]="information.onlineJudge.judgeName0">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeAchievement0">Achievement</label>
+                                            <input type="text" class="form-control" id="judgeAchievement0"
+                                                name="judgeAchievement0" #judgeAchievement0="ngModel"
+                                                [ngModel]="information.onlineJudge.judgeAchievement0">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-5">
+                                        <label for="id0">ID</label>
+                                        <input type="text" class="form-control" id="id0" name="id0" #id0="ngModel"
+                                            [ngModel]="information.onlineJudge.id0">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeName1">Online Judge Name</label>
+                                            <input type="text" class="form-control" id="judgeName1" name="judgeName1"
+                                                #judgeName1="ngModel" [ngModel]="information.onlineJudge.judgeName1">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeAchievement1">Achievement</label>
+                                            <input type="text" class="form-control" id="judgeAchievement1"
+                                                name="judgeAchievement1" #judgeAchievement1="ngModel"
+                                                [ngModel]="information.onlineJudge.judgeAchievement1">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-5">
+                                        <label for="id1">ID</label>
+                                        <input type="text" class="form-control" id="id1" name="id1" #id1="ngModel"
+                                            [ngModel]="information.onlineJudge.id1">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeName2">Online Judge Name</label>
+                                            <input type="text" class="form-control" id="judgeName2" name="judgeName2"
+                                                #judgeName2="ngModel" [ngModel]="information.onlineJudge.judgeName2">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeAchievement2">Achievement</label>
+                                            <input type="text" class="form-control" id="judgeAchievement2"
+                                                name="judgeAchievement2" #judgeAchievement2="ngModel"
+                                                [ngModel]="information.onlineJudge.judgeAchievement2">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-5">
+                                        <label for="id2">ID</label>
+                                        <input type="text" class="form-control" id="id2" name="id2" #id2="ngModel"
+                                            [ngModel]="information.onlineJudge.id2">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeName3">Online Judge Name</label>
+                                            <input type="text" class="form-control" id="judgeName3" name="judgeName3"
+                                                #judgeName3="ngModel" [ngModel]="information.onlineJudge.judgeName3">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeAchievement3">Achievement</label>
+                                            <input type="text" class="form-control" id="judgeAchievement3"
+                                                name="judgeAchievement3" #judgeAchievement3="ngModel"
+                                                [ngModel]="information.onlineJudge.judgeAchievement3">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-5">
+                                        <label for="id3">ID</label>
+                                        <input type="text" class="form-control" id="id3" name="id3" #id3="ngModel"
+                                            [ngModel]="information.onlineJudge.id3">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeName4">Online Judge Name</label>
+                                            <input type="text" class="form-control" id="judgeName4" name="judgeName4"
+                                                #judgeName4="ngModel" [ngModel]="information.onlineJudge.judgeName4">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="judgeAchievement4">Achievement</label>
+                                            <input type="text" class="form-control" id="judgeAchievement4"
+                                                name="judgeAchievement4" #judgeAchievement4="ngModel"
+                                                [ngModel]="information.onlineJudge.judgeAchievement4">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-5">
+                                        <label for="id4">ID</label>
+                                        <input type="text" class="form-control" id="id4" name="id4" #id4="ngModel"
+                                            [ngModel]="information.onlineJudge.id4">
+                                    </div>
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="edu">
+                <div ngModelGroup="projects">
+                    <div class="form-group">
+                        <h3><i class="fa fa-th-list"></i>Projects</h3>
+                        <ul>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="topic0">Topic</label>
+                                            <input type="text" class="form-control" id="topic0" name="topic0"
+                                                #topic0="ngModel" [ngModel]="information.projects.topic0">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="description0">Description</label>
+                                            <input type="text" class="form-control" id="description0"
+                                                name="description0" #description0="ngModel"
+                                                [ngModel]="information.projects.description0">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="year0">Year</label>
+                                        <input type="text" class="form-control" id="year0" name="year0" #year0="ngModel"
+                                            [ngModel]="information.projects.year0">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="topic1">Topic</label>
+                                            <input type="text" class="form-control" id="topic1" name="topic1"
+                                                #topic1="ngModel" [ngModel]="information.projects.topic1">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="description1">Description</label>
+                                            <input type="text" class="form-control" id="description1"
+                                                name="description1" #description1="ngModel"
+                                                [ngModel]="information.projects.description1">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="year1">Year</label>
+                                        <input type="text" class="form-control" id="year1" name="year1" #year="ngModel"
+                                            [ngModel]="information.projects.year1">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="topic2">Topic</label>
+                                            <input type="text" class="form-control" id="topic2" name="topic2"
+                                                #topic="ngModel" [ngModel]="information.projects.topic2">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="description2">Description</label>
+                                            <input type="text" class="form-control" id="description2" name="description2"
+                                                #description2="ngModel"
+                                                [ngModel]="information.projects.description2">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="year2">Year</label>
+                                        <input type="text" class="form-control" id="year" name="year2" #year="ngModel"
+                                            [ngModel]="information.projects.year2">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="topic3">Topic</label>
+                                            <input type="text" class="form-control" id="topic3" name="topic3"
+                                                #topic="ngModel" [ngModel]="information.projects.topic3">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="description3">Description</label>
+                                            <input type="text" class="form-control" id="description3" name="description3"
+                                                #description2="ngModel"
+                                                [ngModel]="information.projects.description3">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="year3">Year</label>
+                                        <input type="text" class="form-control" id="yea3" name="year3" #year="ngModel"
+                                            [ngModel]="information.projects.year3">
+                                    </div>
+                                </small>
+                            </li>
+                            <li>
+                                <span>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="topic4">Topic</label>
+                                            <input type="text" class="form-control" id="topic4" name="topic4"
+                                                #topic="ngModel" [ngModel]="information.projects.topic4">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="description4">Description</label>
+                                            <input type="text" class="form-control" id="description2" name="description4"
+                                                #description2="ngModel"
+                                                [ngModel]="information.projects.description4">
+                                        </div>
+                                    </div>
+                                </span>
+                                <small>
+                                    <div class="form-group col-md-3">
+                                        <label for="year4">Year</label>
+                                        <input type="text" class="form-control" id="year" name="year4" #year="ngModel"
+                                            [ngModel]="information.projects.year4">
+                                    </div>
+                                </small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-prog" ngModelGroup="software">
+                <h3><i class="fa fa-code"></i>Skills of Programming</h3>
+                <ul>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="skill/software" id="soft0" name="soft0"
+                                #soft0="ngModel" [ngModel]="information.software.soft0">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" placeholder="value" id="value0" name="value0"
+                                #value0="ngModel" [ngModel]="information.software.value0">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="skill/software" id="soft1" name="soft1"
+                                #soft1="ngModel" [ngModel]="information.software.soft1">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" placeholder="value" id="value1" name="value1"
+                                #value1="ngModel" [ngModel]="information.software.value1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="skill/software" id="soft2" name="soft2"
+                                #soft2="ngModel" [ngModel]="information.software.soft2">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" placeholder="value" id="value2" name="value2"
+                                #value2="ngModel" [ngModel]="information.software.value2">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="skill/software" id="soft3" name="soft3"
+                                #soft3="ngModel" [ngModel]="information.software.soft3">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" placeholder="value" id="value3" name="value3"
+                                #value3="ngModel" [ngModel]="information.software.value3">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" class="form-control" placeholder="skill/software" id="soft4" name="soft4"
+                                #soft4="ngModel" [ngModel]="information.software.soft4">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" placeholder="value" id="value4" name="value4"
+                                #value4="ngModel" [ngModel]="information.software.value4">
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="interests" ngModelGroup="interest">
+                <h3><i class="fa fa-star"></i>Hobbies</h3>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" placeholder="Hobby" id="hobby0" name="hobby0"
+                        #hobby0="ngModel" [ngModel]="information.hobby.hobby0">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" placeholder="Hobby" id="hobby1" name="hobby1"
+                        #hobby1="ngModel" [ngModel]="information.hobby.hobby1">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" placeholder="Hobby" id="hobby2" name="hobby2"
+                        #hobby2="ngModel" [ngModel]="information.hobby.hobby2">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" placeholder="Hobby" id="hobby3" name="hobby3"
+                        #hobby3="ngModel" [ngModel]="information.hobby.hobby3">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" placeholder="Hobby" id="hobby3" name="hobby4"
+                        #hobby3="ngModel" [ngModel]="information.hobby.hobby4">
+                </div>
+            </div>
+
+
+            <button style="float: right;" type="submit" class="btn btn-primary"
+                [disabled]="form.invalid">Submit</button>
+        </div>
+    </div>
+
+</form>

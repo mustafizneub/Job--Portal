@@ -1,0 +1,38 @@
+<div class="all">
+
+
+    <div class="left">
+        <button class="btn btn-info" (click)=create()>Create Resume</button><br>
+        <button class="btn btn-info" (click)="view()">View Profiles</button>
+    </div>
+
+    <div class="right">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let info of information">
+                    <tr *ngIf="info.data.cvNo">
+                        <td>{{info['data']['basicInfo']['name']}}</td>
+                        <td *ngIf="info.data.cvNo==1"><a [routerLink]="['/template1-view', info['id']]"><button
+                                    class="btn btn-success">Resume</button> </a></td>
+                        <td *ngIf="info.data.cvNo==2"><a [routerLink]="['/template2-view', info['id']]"><button
+                                    class="btn btn-success">Resume</button> </a></td>
+                        <td *ngIf="info.data.cvNo==3"><a [routerLink]="['/template3-view', info['id']]"><button
+                                    class="btn btn-success">Resume</button> </a></td>
+                        <td *ngIf="info.data.cvNo==4"><a [routerLink]="['/template4-view', info['id']]"><button
+                                    class="btn btn-success">Resume</button> </a></td>
+                        <td *ngIf="info.data.cvNo==5"><a [routerLink]="['/template5-view', info['id']]"><button
+                                    class="btn btn-success">Resume</button> </a></td>
+                        <td *ngIf="info.data.cvNo==6"><a [routerLink]="['/template6-view', info['id']]"><button
+                                    class="btn btn-success">Resume</button> </a></td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

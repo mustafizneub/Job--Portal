@@ -1,0 +1,30 @@
+.right{width:80%; margin:0px -2px 0 0px; }
+.left{
+	background-color:#0BB5F4; 
+	width:20%; 
+	margin:0px 0px; 
+	max-height: 900px; 
+	/* box-shadow:3px 3px 5px 4px gray ; */
+	overflow: hidden;
+	
+}
+table{
+	background-color: #FFFFFF;
+	color: #0BB5F4;
+	
+	overflow: hidden;
+}
+.all{
+	margin:10px; display:flex; min-height:900px; position: relative;font-family: cursive;
+}
+.left button{
+	margin: 10px;
+	padding: 10px 50px;
+	text-align: center;
+	position: relative;
+	background-color: #FFFFFF;
+	color: #0BB5F4;
+}
+.left button:hover{
+	background-color: gray;
+}

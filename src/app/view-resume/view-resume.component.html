@@ -1,0 +1,586 @@
+<app-nav></app-nav>
+<div *ngIf='information.basicInfo.cvNo==1' class="container">
+    <div class="row p-4">
+        <div class="col col-lg-4 ">
+            <img src="../../assets/images/mypic.png" alt="" height="200" width="0" style="object-fit: contain;">
+        </div>
+        <div class="col col-lg-8 " *ngIf="information">
+            <h3>{{information.basicInfo.name}}</h3>
+            <h4 style="color: #236FB2;">{{information.basicInfo.designation}}</h4>
+            <p>{{information.basicInfo.address}}</p>
+            <p>{{information.basicInfo.email}}</p>
+            <p>{{information.basicInfo.phone}}</p>
+        </div>
+
+
+    </div>
+
+
+    <div class="row p-4">
+        <div class="col-lg-4 ">
+            <h3><i class="fa">&#xf069;</i>&nbsp;Skills</h3>
+        </div>
+        <div class="col col-lg-8 " *ngIf='information'>
+            <ul>
+                <li class="list">
+                    <p><b>Programming Language</b></p>
+                    <p>{{information.skills.programmingLanguage}}</p>
+                </li>
+
+                <li class="list">
+                    <p><b>Framework</b></p>
+                    <p>{{information.skills.framework}}</p>
+                </li>
+
+
+                <li class="list">
+                    <p><b>Operating System</b></p>
+                    <p>{{information.skills.operating}}</p>
+                </li>
+
+
+                <li>
+                    <p><b>Others</b></p>
+                    <p>{{information.skills.other}}</p>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="row p-4">
+        <div class="col-lg-4">
+            <h3><i class="fa">&#xf0f2;</i>&nbsp;Work Experience</h3>
+        </div>
+        <div class="col col-lg-8" *ngIf="information">
+            <ul>
+                <div *ngIf="information.experience.experience1.designation!='' " class="row">
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{ information.experience.experience1.designation }}</b></p>
+                            <p>{{ information.experience.experience1.company }}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{ information.experience.experience1.from }} - {{ information.experience.experience1.to }}
+                        </p>
+                    </div>
+
+                </div>
+                <div *ngIf="information.experience.experience2.designation!=''" class="row">
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{ information.experience.experience2.designation }}</b></p>
+                            <p>{{ information.experience.experience2.company }}</p>
+                        </li>
+
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{ information.experience.experience2.from }} - {{ information.experience.experience2.to }}
+                        </p>
+                    </div>
+
+                </div>
+
+                <div *ngIf="information.experience.experience3.designation!=''" class="row">
+                    <div class="col-9">
+                        <li>
+                            <p><b>{{ information.experience.experience3.designation }}</b></p>
+                            <p>{{ information.experience.experience3.company }}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{ information.experience.experience3.from }} - {{ information.experience.experience3.to }}
+                        </p>
+                    </div>
+
+                </div>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="row p-4">
+        <div class="col-lg-4">
+            <h3><i class="fa">&#xf0a3;</i>&nbsp;Education</h3>
+        </div>
+        <div class="col col-lg-8" *ngIf="information">
+            <ul>
+                <div *ngIf="information.qualification.qualification1.name!=''" class="row">
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{information.qualification.qualification1.name}}</b></p>
+                            <p>{{information.qualification.qualification1.institute}}</p>
+                            <p>CGPA :{{information.qualification.qualification1.cgpa}}</p>
+                        </li>
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.qualification.qualification1.session}}</p>
+                    </div>
+
+                </div>
+
+                <div *ngIf="information.qualification.qualification2.name!=''" class="row">
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{information.qualification.qualification2.name}}</b></p>
+                            <p>{{information.qualification.qualification2.institute}}</p>
+                            <p>CGPA :{{information.qualification.qualification2.cgpa}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.qualification.qualification2.session}}</p>
+                    </div>
+
+                </div>
+
+                <div *ngIf="information.qualification.qualification3.name!=''" class="row">
+                    <div class="col-9">
+                        <li>
+                            <p><b>{{information.qualification.qualification3.name}}</b></p>
+                            <p>{{information.qualification.qualification3.institute}}</p>
+                            <p>CGPA :{{information.qualification.qualification3.cgpa}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.qualification.qualification3.session}}</p>
+                    </div>
+
+                </div>
+            </ul>
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="row p-4">
+        <div class="col-lg-4">
+            <h3><i class="fa">&#xf0a3;</i>&nbsp;Participation</h3>
+        </div>
+        <div class="col col-lg-8" *ngIf="information">
+            <ul>
+                <div *ngIf="information.participation.event1.event!=''" class="row">
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{information.participation.event1.event}}</b></p>
+                            <p>{{information.participation.event1.achievement}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.participation.event1.year}}</p>
+                    </div>
+
+
+                </div>
+
+                <div *ngIf="information.participation.event2.event!=''" class="row">
+
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{information.participation.event2.event}}</b></p>
+                            <p>{{information.participation.event2.achievement}}</p>
+                        </li>
+
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.participation.event2.year}}</p>
+                    </div>
+
+                </div>
+
+                <div *ngIf="information.participation.event3.event!=''" class="row">
+
+                    <div class="col-9">
+                        <li>
+                            <p><b>{{information.participation.event3.event}}</b></p>
+                            <p>{{information.participation.event3.achievement}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.participation.event3.year}}</p>
+                    </div>
+
+
+                </div>
+            </ul>
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="row p-4">
+        <div class="col-lg-4">
+            <h3><i class="fa">&#xf0a3;</i>&nbsp;Projects</h3>
+        </div>
+        <div class="col col-lg-8" *ngIf="information">
+            <ul>
+                <div *ngIf="information.projects.project1.topic!=''" class="row">
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{information.projects.project1.topic}}</b></p>
+                            <p>{{information.projects.project1.description}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.projects.project1.year}}</p>
+                    </div>
+                </div>
+
+                <div *ngIf="information.projects.project2.topic!=''" class="row">
+
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{information.projects.project2.topic}}</b></p>
+                            <p>{{information.projects.project2.description}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.projects.project2.year}}</p>
+                    </div>
+                </div>
+
+                <div *ngIf="information.projects.project3.topic!=''" class="row">
+                    <div class="col-9">
+                        <li>
+                            <p><b>{{information.projects.project3.topic}}</b></p>
+                            <p>{{information.projects.project3.description}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.projects.project3.year}}</p>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+    <hr>
+
+    <div class="row p-4">
+        <div class="col-lg-4">
+            <h3><i class="fa">&#xf0a3;</i>&nbsp;Online Judges</h3>
+        </div>
+        <div class="col col-lg-8" *ngIf="information">
+            <ul>
+                <div *ngIf="information.onlineJudge.judge1.name!=''" class="row">
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{information.onlineJudge.judge1.name}}</b></p>
+                            <p>{{information.onlineJudge.judge1.achievement}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.onlineJudge.judge1.id}}</p>
+                    </div>
+
+                </div>
+
+                <div *ngIf="information.onlineJudge.judge2.name!=''" class="row">
+
+                    <div class="col-9">
+                        <li class="list">
+                            <p><b>{{information.onlineJudge.judge2.name}}</b></p>
+                            <p>{{information.onlineJudge.judge2.achievement}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.onlineJudge.judge2.id}}</p>
+                    </div>
+
+                </div>
+
+                <div *ngIf="information.onlineJudge.judge3.name!=''" class="row">
+
+                    <div class="col-9">
+                        <li>
+                            <p><b>{{information.onlineJudge.judge3.name}}</b></p>
+                            <p>{{information.onlineJudge.judge3.achievement}}</p>
+                        </li>
+
+                    </div>
+                    <div class="col-3">
+                        <p>{{information.onlineJudge.judge3.id}}</p>
+                    </div>
+
+                </div>
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>
+
+<!-- Second Template -->
+
+<div *ngIf='information.basicInfo.cvNo==2' class="resume">
+    <div class="base" *ngIf="information">
+        <div class="profile">
+
+            <div class="photo"><img src="../../assets/images/user.png">
+            </div>
+            <div class="info">
+                <h3 class="name">{{information.basicInfo.name}}</h3>
+                <p class="job" style="color: #FFFFFF;">{{information.basicInfo.designation}}</p>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h3>Personal Info.</h3>
+            <div class="row">
+                <div class="col-12" style="padding-bottom: 5px;">
+                    <div class="row">
+                        <div class="col-2"><i class="fa fa-address-book-o" aria-hidden="true"></i></div>
+                        <div class="col-6">
+                            <p> {{information.basicInfo.address}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 " style="padding-bottom: 5px;">
+                    <div class="row">
+                        <div class="col-2"><i class="fa fa-envelope-o" aria-hidden="true"></i> </div>
+                        <div class="col-6">
+                            <p>{{information.basicInfo.email}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" style="padding-bottom: 5px;">
+                    <div class="row">
+                        <div class="col-2"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                        <div class="col-6">
+                            <p> {{information.basicInfo.phone}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <hr>
+        <div class="contact">
+            <h3>Skills</h3>
+            <h4>Programming Languages</h4>
+            <p>{{information.skills.programmingLanguage}}</p><br>
+            <h4>Framework</h4>
+            <p>{{information.skills.framework}}</p><br>
+            <h4>Operating System</h4>
+            <p>{{information.skills.operating}}</p><br>
+            <h4>Others</h4>
+            <p>{{information.skills.other}}</p>
+        </div>
+        <hr>
+        <div class="follow">
+            <h3>Contact me</h3>
+            <div class="box"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa-twitter"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa-pinterest-p"></i></a>
+                <a href="javascript:void(0);"><i class="fa fa-codepen"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="func">
+        <div class="work" *ngIf="information">
+            <h3><i class="fa fa-briefcase"></i>Experiences</h3>
+            <ul>
+                <div *ngIf="information.experience.experience1.designation!='' ">
+                    <li><span>{{ information.experience.experience1.designation }}</span>
+                        <p>{{ information.experience.experience1.company }}</p>
+                        <small class="mb-3">{{ information.experience.experience1.from }} -
+                            {{ information.experience.experience1.to }}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.experience.experience2.designation!='' ">
+                    <li><span>{{ information.experience.experience2.designation }}</span>
+                        <p>{{ information.experience.experience2.company }}</p>
+                        <small class="mb-3">{{ information.experience.experience2.from }} -
+                            {{ information.experience.experience2.to }}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.experience.experience3.designation!='' ">
+                    <li><span>{{ information.experience.experience3.designation }}</span>
+                        <p>{{ information.experience.experience3.company }}</p>
+                        <small>{{ information.experience.experience3.from }} -
+                            {{ information.experience.experience3.to }}</small>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <hr>
+        <div class="edu" *ngIf="information">
+            <h3><i class="fa fa-graduation-cap"></i>Education</h3>
+            <ul>
+                <div *ngIf="information.qualification.qualification1.name!=''" class="">
+                    <li>
+                        <span>{{information.qualification.qualification1.name}}</span>
+                        <p>{{information.qualification.qualification1.institute}}</p>
+                        <p>CGPA :{{information.qualification.qualification1.cgpa}}</p>
+                        <small class="mb-3">{{information.qualification.qualification1.session}}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.qualification.qualification2.name!=''" class="">
+                    <li>
+                        <span>{{information.qualification.qualification2.name}}</span>
+                        <p>{{information.qualification.qualification2.institute}}</p>
+                        <p>CGPA :{{information.qualification.qualification2.cgpa}}</p>
+                        <small class="mb-3">{{information.qualification.qualification2.session}}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.qualification.qualification3.name!=''">
+                    <li>
+                        <span>{{information.qualification.qualification3.name}}</span>
+                        <p>{{information.qualification.qualification3.institute}}</p>
+                        <p>CGPA :{{information.qualification.qualification3.cgpa}}</p>
+                        <small>{{information.qualification.qualification3.session}}</small>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <hr>
+
+        <div *ngIf="information" class="edu">
+            <h3><i class="fa fa-th-list"></i>Participation</h3>
+            <ul>
+                <div *ngIf="information.participation.event1.event!=''">
+                    <li><span>{{information.participation.event1.event}}</span>
+                        <p>{{information.participation.event1.achievement}}</p>
+                        <small class="mb-3">{{information.participation.event1.year}}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.participation.event2.event!=''">
+                    <li><span>{{information.participation.event2.event}}</span>
+                        <p>{{information.participation.event2.achievement}}</p>
+                        <small class="mb-3">{{information.participation.event2.year}}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.participation.event3.event!=''">
+                    <li><span>{{information.participation.event3.event}}</span>
+                        <p>{{information.participation.event3.achievement}}</p>
+                        <small>{{information.participation.event3.year}}</small>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <hr>
+        <div *ngIf="information" class="edu">
+            <h3><i class="fa fa-code"></i>Online Judges</h3>
+            <ul>
+                <div *ngIf="information.onlineJudge.judge1.name!=''">
+                    <li><span>{{information.onlineJudge.judge1.name}}</span>
+                        <p>{{information.onlineJudge.judge1.achievement}}</p>
+                        <small class="mb-3">{{information.onlineJudge.judge1.id}}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.onlineJudge.judge2.name!=''">
+                    <li><span>{{information.onlineJudge.judge2.name}}</span>
+                        <p>{{information.onlineJudge.judge2.achievement}}</p>
+                        <small class="mb-3">{{information.onlineJudge.judge2.id}}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.onlineJudge.judge3.name!=''">
+                    <li><span>{{information.onlineJudge.judge3.name}}</span>
+                        <p>{{information.onlineJudge.judge3.achievement}}</p>
+                        <small>{{information.onlineJudge.judge3.id}}</small>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <hr>
+
+        <div class="edu">
+            <h3><i class="fa fa-th-list"></i>Projects</h3>
+            <ul>
+                <div *ngIf="information.projects.project1.topic!=''">
+                    <li><span>{{information.projects.project1.topic}}</span>
+                        <p>{{information.projects.project1.description}}</p>
+                        <small class="mb-3">{{information.projects.project1.year}}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.projects.project2.topic!=''">
+                    <li><span>{{information.projects.project2.topic}}</span>
+                        <p>{{information.projects.project2.description}}</p>
+                        <small class="mb-3">{{information.projects.project2.year}}</small>
+                    </li>
+                </div>
+                <div *ngIf="information.projects.project3.topic!=''">
+                    <li><span>{{information.projects.project3.topic}}</span>
+                        <p>{{information.projects.project3.description}}</p>
+                        <small>{{information.projects.project3.year}}</small>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <hr>
+
+        <div class="skills-prog">
+            <h3><i class="fa fa-code"></i>Skills of Programming</h3>
+            <ul>
+                <li data-percent="96"><span>HTML5</span>
+                    <div class="progress">
+                        <progress id="avancement" class="progressBar" value="85" max="100"></progress>
+                    </div>
+                </li>
+                <li data-percent="96"><span>CSS3</span>
+                    <div class="progress">
+                        <progress id="avancement" class="progressBar" value="100" max="100"></progress>
+                    </div>
+                </li>
+                <li data-percent="96"><span>Bootstrap</span>
+                    <div class="progress">
+                        <progress id="avancement" class="progressBar" value="50" max="100"></progress>
+                    </div>
+                </li>
+                <li data-percent="96"><span>JavaScript</span>
+                    <div class="progress">
+                        <progress id="avancement" class="progressBar" value="40" max="100"></progress>
+                    </div>
+                </li>
+                <li data-percent="96"><span>PHP</span>
+                    <div class="progress">
+                        <progress id="avancement" class="progressBar" value="40" max="100"></progress>
+                    </div>
+                </li>
+                <li data-percent="96"><span>Git</span>
+                    <div class="progress">
+                        <progress id="avancement" class="progressBar" value="80" max="100"></progress>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="interests">
+            <h3><i class="fa fa-star"></i>Hobbies</h3>
+            <p style="margin-left: 20px;"><b># Travelling</b></p>
+            <p style="margin-left: 20px;"><b># Playing games</b></p>
+            <p style="margin-left: 20px;"><b># Cooking Food</b></p>
+            <p style="margin-left: 20px;"><b># Fishing</b></p>
+        </div>
+    </div>
+</div>
+
+<!-- Second Template close -->
+<footer *ngIf="information.basicInfo.cvNo==0" class="center">
+    <p>Find me on social media.</p>
+    <i class="fa">&#xf09a;</i>&nbsp;
+    <i class="fa">&#xf16d;</i>&nbsp;
+    <i class="fa">&#xf2ab;</i>&nbsp;
+    <i class="fa">&#xf0d2;</i>&nbsp;
+    <i class="fa">&#xf099;</i>&nbsp;
+    <i class="fa">&#xf0e1;</i>
+    <p>Created by Mustafiz</p>
+</footer>
+<footer *ngIf='information.basicInfo.cvNo==0' class="center1">
+
+    <p>Created by Mustafiz</p>
+</footer>

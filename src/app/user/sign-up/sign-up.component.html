@@ -1,0 +1,73 @@
+<div class="container pt-3">
+    <div class="row justify-content-sm-center">
+      <div class="col-sm-10 col-md-6">
+        <div class="card border-info">
+          <div class="card-header">Register</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4 text-center">
+                <img src="https://placeimg.com/128/128/nature">
+              </div>
+              <div class="col-md-8">
+                <form #form="ngForm">
+                  <input type="text" class="form-control mb-2" name="name" ngModel
+                   placeholder="Name" #name="ngModel" required >
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+                    <div *ngIf="name.errors.required">
+                        Name is required.
+                    </div>
+                    <div *ngIf="name.errors.minlength">
+                        Name must be at least 4 characters long.
+                    </div>
+                    <div *ngIf="name.errors.forbiddenName">
+                        Name cannot be Bob.
+                    </div>
+
+                </div>
+                  <input type="email" class="form-control mb-2" name="email" ngModel
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   #email="ngModel" placeholder="Email" required >
+                   <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+                    <div *ngIf="email.errors.required">
+                        Email is required.
+                    </div>
+                    <div *ngIf="email.errors.pattern">
+                        This is not a valid email.
+                    </div>
+
+                </div>
+                  <input type="password" class="form-control mb-2" name="password" ngModel
+                   #password="ngModel"
+                   placeholder="Password" required minlength="6">
+                   <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+                    <div *ngIf="password.errors.required">
+                        password is required.
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                        Minimum 6 digits.
+                    </div>
+                    </div>
+                    <input type="password" class="form-control mb-2" name="confirmPassword" ngModel
+                     #password1="ngModel"
+                    placeholder="Confirm Password" required minlength="6">
+                    <div *ngIf="password1.invalid && (password1.dirty || password1.touched)" class="alert alert-danger">
+ 
+                     <div *ngIf="password1.errors.required">
+                         Confirm password is required.
+                     </div>
+                     <div *ngIf="password1.errors.minlength">
+                         Minimum 6 digits.
+                     </div>
+                     </div>
+                  <button class="btn btn-lg btn-primary btn-block mb-1" [disabled]='form.invalid' (click)=signUp(form)>Login</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

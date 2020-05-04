@@ -1,0 +1,70 @@
+.t3{
+    margin-top: 20px;
+      margin-bottom: 20px;
+  }
+  .t3 .container{
+      
+      position: relative;
+      display: flex;
+      box-shadow: 0 0 3px 2px #8e8686;
+      padding: 0;
+      font-family: 'Mukta', sans-serif;
+      width: 885px;
+      margin:auto;
+  }
+  .t3 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      line-height: 1;
+  }
+  .t3 .container .left{
+      width:35%;
+      background-color: #003D74;
+      color: #FFFFFF;
+      padding: 20px;
+  }
+  .t3 .container .right{
+      width: 65%;
+      background-color: #FFFFFF;
+      color: #ACACAC;
+      margin-left: -2px;
+      padding: 20px;
+      
+  }
+  .t3 h5{
+      background-color: #002E58;
+      margin-bottom: 20px;
+  }
+  .t3 h6{
+      font-weight: 500;
+  }
+  .t3 small{
+      margin-top: 10px;
+  }
+  .t3 .left p{
+      font-size: 14px;
+  }
+  .t3 .container .right h4{
+      background-color: inherit;
+      border-top:1px solid #EFEFEF;
+      border-bottom: 1px solid #EFEFEF;
+      color:#003D74;
+      font-weight: 700;
+      padding-bottom: 5px;
+  }
+  .t3 .container .right h6{
+      color: #828282;
+  }
+
+  
+.form-control{
+    background-color: inherit;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1x solid;
+    border-radius: 0;
+  }
+  label{
+    margin-bottom: 0;
+  }

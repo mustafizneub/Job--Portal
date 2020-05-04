@@ -1,0 +1,33 @@
+<form #form="ngForm">
+    <div ngModelGroup="x"class="container">
+        <div  class="row" *ngFor="let item of array , let i=index">
+            <div class="col-9">
+                <div class="row form-group child">
+                    <div class="col-4">
+                        <label for="name">name</label>
+                        <input type="text" class="form-control" name="name{{i}}" ngModel>
+                    </div>
+                    <div class="col-2">
+
+                        <label for="id">ID</label>
+                        <input type="number" name="id{{i}}" class="form-control" min="0" ngModel>
+                    </div>
+                    <div class="col-2">
+                        <label for="user">Username</label>
+                        <input type="text" name="user{{i}}" class="form-control" ngModel>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-3">
+                <div *ngIf="i==0" class="col-6" style="margin-top: 30px;" (click)="$event.stopPropagation()">
+                    <button class="btn-outline-primary" (click)="add()"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+                </div>
+                <div *ngIf="i!=0" class="col-6" style="margin-top: 30px;">
+                    <button class="btn-outline-danger" (click)="remove(i)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+        </div>
+        <button (click)="onSubmit(form)" class="btn-primary">Submit</button>
+    </div>
+</form>

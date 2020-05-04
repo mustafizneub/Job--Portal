@@ -1,0 +1,33 @@
+@import "../../assets/assets/css/all.min.css";
+@import "../../assets/assets/css/bootstrap.min.css";
+@import "../../assets/assets/css/material-icons.min.css";
+@import "../../assets/assets/css/responsive.css";
+@import "../../assets/assets/css/style.css";
+
+.navbar{
+    background: rgb(218, 217, 217);
+    color:black;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 4px 2px -2px #E5ECF1;
+  }
+  #logo{
+    height: 30px;
+    width: 30;
+  margin: 5px 5px;
+  }
+  
+  .header a{
+    /* color:#fff; */
+    text-decoration: none;
+  }
+  .navbar button{
+   background-color: transparent;
+   color: #3983FA;
+  }
+  .navbar button:hover{
+    background-color: #3983FA;
+    color:#FFFFFF;
+    font-weight: 500;
+  }
